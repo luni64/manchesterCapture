@@ -1,0 +1,31 @@
+{
+  "version": "2",
+  "target": "vsCode",
+  "buildSystem": "makefile",
+  "debugSupport": "none",
+  "configurations": [
+    {
+      "name": "default",
+      "guid": "aa118d0a-8986-4de8-8caf-5ae890706fb9",
+      "setupType": "quick",
+      "coreBase": "C:\\Program Files (x86)\\arduino-1.8.15\\hardware\\teensy\\avr",
+      "compilerBase": "C:\\Program Files (x86)\\arduino-1.8.15\\hardware\\tools\\arm",
+      "makefileExtension": null,
+      "coreStrategy": "copy",
+      "stdLib": "newlib",
+      "sharedLibraries": [],
+      "projectLibraries": [
+        "RingBuffer-1.0.3"
+      ],
+      "board": {
+        "name": "Teensy 4.1",
+        "options": {
+          "USB Type": "Serial",
+          "CPU Speed": "600 MHz",
+          "Optimize": "Faster",
+          "Keyboard Layout": "US English"
+        }
+      }
+    }
+  ]
+}
