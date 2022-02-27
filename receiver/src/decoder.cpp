@@ -24,9 +24,8 @@ namespace Manchester
     int Decoder::read(char* buf, size_t bufSize)
     {
         size_t maxRead = min(bufSize, resultBuffer.size());
-        for (int i = 0; i < maxRead; i++)
+        for (size_t i = 0; i < maxRead; i++)
         {
-           // buf[i] = resultBuffer[i];
              char c;
              resultBuffer.pop(c);
              buf[i] = c;

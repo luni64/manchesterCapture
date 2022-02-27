@@ -11,7 +11,7 @@ void EdgeProvider::init()
 
     attachInterruptVector(IRQ_QTIMER1, onCapture);
     NVIC_ENABLE_IRQ(IRQ_QTIMER1);
-    NVIC_SET_PRIORITY(IRQ_QTIMER1,16);
+    NVIC_SET_PRIORITY(IRQ_QTIMER1, 16);
 
     ch->CTRL = TMR_CTRL_CM(1) | TMR_CTRL_PCS(8 + 3) | TMR_CTRL_SCS(2); // start, source: peripheral clock, prescaler 3 (=> dt = 1/150Mhz * 8 = 53ns resolution, 2^15 * 53ns = 3.5ms max), use counter 2 input pin for capture
 }
@@ -23,20 +23,16 @@ void EdgeProvider::onCapture()
 {
     digitalWriteFast(9, HIGH);
 
-    static uint16_t old = 0;                            // needed to calculate ticks since last edge
-                                                        //
-    if (ch->SCTRL & TMR_SCTRL_IEF)                      // do we have an edge interrupt?
-    {                                                   //
-        ch->SCTRL &= ~TMR_SCTRL_IEF;                    // clear interrupt flag
-        uint16_t current = ch->CAPT;                    // read out captured counter value
-        uint32_t edge    = ((uint16_t)(current - old)); // time since last edge (ns)
-        edge |= (ch->SCTRL & TMR_SCTRL_INPUT) << 16;    // read out current input pin value and store in HIGH WORD
-                                                        //
-        old = current;                                  // prepare next capture
-        buffer.push(edge);
-    };
-
+    ch->SCTRL &= ~TMR_SCTRL_IEF; // clear interrupt flag
+    uint16_t curCap = ch->CAPT;  // read out captured counter value
+    uint16_t input  = ch->SCTRL & TMR_SCTRL_INPUT;
+    uint16_t delta  = curCap - oldCap;
+    uint32_t edge   = delta | (input << 16); // read out current input pin value and store in HIGH WORD
+    buffer.push(edge);                       //
+    oldCap = curCap;
+    // prepare next capture
     digitalWriteFast(9, LOW);
 }
 
 EdgeBuffer EdgeProvider::buffer;
+uint16_t EdgeProvider::oldCap = 0;
