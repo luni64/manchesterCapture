@@ -6,8 +6,7 @@ Manchester::Decoder decoder;
 
 void setup()
 {
-    pinMode(9, OUTPUT);
-    pinMode(8, OUTPUT);
+    pinMode(9, OUTPUT);  
     while (!Serial) {}
     Serial.println("start --------------");
 
