@@ -1,0 +1,22 @@
+{
+  "task.autoDetect": "off",
+  "compiler-explorer.url": "http://localhost:10240",
+  "compiler-explorer.compiler": "g54",
+  "compiler-explorer.options": [
+    "-I'C:/Users/lutz/source/teensy/TeensySupport/manchesterCapture/receiver/src'",
+    "-I'C:/Users/lutz/source/teensy/TeensySupport/manchesterCapture/receiver/cores/teensy4'",
+    "-I'C:/Users/lutz/source/teensy/TeensySupport/manchesterCapture/receiver/lib/RingBuffer-1.0.3/src'",
+    "-D__IMXRT1062__ -DTEENSYDUINO=156",
+    "-DF_CPU=600000000",
+    "-DUSB_SERIAL",
+    "-DLAYOUT_US_ENGLISH",
+    "-DARDUINO_TEENSY41",
+    "-DARDUINO=10815",
+    "-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing",
+    "",
+    "-mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16",
+    "-O2",
+    "-g -Wall -ffunction-sections -fdata-sections -nostdlib",
+    null
+  ]
+}

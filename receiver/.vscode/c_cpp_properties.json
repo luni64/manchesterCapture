@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "name": "VisualTeensy",
+      "includePath": [
+        "src",
+        "cores/teensy4",
+        "lib/RingBuffer-1.0.3/src"
+      ],
+      "forcedInclude": [],
+      "defines": [
+        "__IMXRT1062__",
+        "TEENSYDUINO=156",
+        "ARDUINO_TEENSY41",
+        "F_CPU=600000000",
+        "USB_SERIAL",
+        "LAYOUT_US_ENGLISH",
+        "ARDUINO=10813"
+      ],
+      "compilerPath": "C:/PROGRA~2/ARDUIN~1.15/hardware/tools/arm/bin/arm-none-eabi-gcc.exe",
+      "intelliSenseMode": "gcc-arm",
+      "cppStandard": "gnu++14"
+    }
+  ],
+  "version": 4
+}

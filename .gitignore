@@ -1,6 +1,8 @@
 # build
 .vsteensy/build/**
 .vscode/**
+**/cores/**
+**/lib/**/examples/**
 makefile
 
 # dependency files
@@ -8,6 +10,7 @@ makefile
 
 # output and binaries
 *.slo
+*.sym
 *.lo
 *.o
 *.obj
