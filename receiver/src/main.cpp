@@ -25,8 +25,8 @@ void setup()
     //     ;
 
 
-    t.begin([] { decoder.tick(); }, 100);
-    t.priority(255);
+    // t.begin([] { decoder.tick(); }, 100);
+    // t.priority(255);
 }
 
 TS5643Field old;
@@ -48,7 +48,7 @@ void loop()
         decoder.resultBuffer.pop(result);
         interrupts();
 
-        //Serial.printf("%0.3d %d\n", i, result.count);
+        Serial.printf("%0.3d %d\n", i, result.count);
         if (result.count != old.count + 1)
         {
             Serial.println("Error --------------------------------");
@@ -56,13 +56,13 @@ void loop()
         old = result;
 
     }
-    
+
 
     digitalWriteFast(8, LOW); //
-    delay(10);                 // do something else, make sure you don't spend too much time otherwise the result buffer might overflow and you loose data
+    delay(1);                 // do something else, make sure you don't spend too much time otherwise the result buffer might overflow and you loose data
 }
 
 void yield()
 {
-    //decoder.tick(); // tick the decoder from yield to get ticks even during delays and other time consuming tasks...
+    decoder.tick(); // tick the decoder from yield to get ticks even during delays and other time consuming tasks...
 }

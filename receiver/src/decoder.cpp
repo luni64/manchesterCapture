@@ -59,9 +59,12 @@ namespace Manchester
         static bool first          = true;       // keep track of the 2T timing
 
         uint16_t dt   = (event & 0xFFFF) * 8.0f * 1E9f / F_BUS_ACTUAL; // time since last edge
-        bool edge = event >> 16;                                   // 0 -> down, 1 -> up
+        //bool edge = event >> 16;                                   // 0 -> down, 1 -> up
+        static bool edge;
 
-        //Serial.printf("%d:%d ",edge, event);
+        edge = !edge;
+        //Serial.printf("%u:%u ",edge, dt);
+
 
         switch (state)
         {
@@ -73,7 +76,8 @@ namespace Manchester
                     first              = true;
 
                     state = SYNCED;
-                  //  Serial.println("Sync");
+                    //Serial.println("Sync");
+                    edge = 0;
                 }
 
                 break;

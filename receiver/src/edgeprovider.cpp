@@ -23,18 +23,13 @@ void EdgeProvider::onCapture()
 {
     digitalWriteFast(9, HIGH);
 
-    //ch->SCTRL &= ~TMR_SCTRL_IEF;
-
-    bool input = ch->SCTRL & TMR_SCTRL_INPUT;                 // read out input pin level
     ch->SCTRL  = TMR_SCTRL_CAPTURE_MODE(3) | TMR_SCTRL_IEFIE; // faster than selectively clearing interrupt flag
 
     uint16_t capture = ch->CAPT;                     // read out captured counter value
     uint32_t edge    = (uint16_t)(capture - oldCap); // time since last edge
-    if (input) edge |= 0xFFFF'0000;
+    oldCap = capture;  // prepare next capture
 
     buff.push(edge); // ...and push to ring buffer
-
-    oldCap = capture;  // prepare next capture
 
     digitalWriteFast(9, LOW);
 }
