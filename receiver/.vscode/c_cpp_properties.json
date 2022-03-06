@@ -4,8 +4,7 @@
       "name": "VisualTeensy",
       "includePath": [
         "src",
-        "cores/teensy4",
-        "lib/RingBuffer-1.0.3/src"
+        "cores/teensy4"
       ],
       "forcedInclude": [],
       "defines": [

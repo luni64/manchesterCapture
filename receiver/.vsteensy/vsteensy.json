@@ -14,9 +14,7 @@
       "coreStrategy": "copy",
       "stdLib": "newlib",
       "sharedLibraries": [],
-      "projectLibraries": [
-        "RingBuffer-1.0.3"
-      ],
+      "projectLibraries": [],
       "board": {
         "name": "Teensy 4.1",
         "options": {

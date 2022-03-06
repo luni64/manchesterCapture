@@ -2,13 +2,14 @@
 
 #include "RingBuf.h"
 
-using EdgeBuffer = RingBuf<uint32_t, 50000>; // LOW WORD holds ticks since last edge, HIGH WORD holds edge (rising/falling)
+//using EdgeBuffer = RingBuf<uint32_t, 50000>; // LOW WORD holds ticks since last edge, HIGH WORD holds edge (rising/falling)
 
 class EdgeProvider
 {
  public:
     static void init();
-    static EdgeBuffer buffer;
+    //static EdgeBuffer buffer;
+    static buffer buff;
 
  protected:
     static uint16_t oldCap;

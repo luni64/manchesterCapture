@@ -5,7 +5,6 @@
   "compiler-explorer.options": [
     "-I'C:/Users/lutz/source/teensy/TeensySupport/manchesterCapture/receiver/src'",
     "-I'C:/Users/lutz/source/teensy/TeensySupport/manchesterCapture/receiver/cores/teensy4'",
-    "-I'C:/Users/lutz/source/teensy/TeensySupport/manchesterCapture/receiver/lib/RingBuffer-1.0.3/src'",
     "-D__IMXRT1062__ -DTEENSYDUINO=156",
     "-DF_CPU=600000000",
     "-DUSB_SERIAL",
@@ -18,5 +17,12 @@
     "-O2",
     "-g -Wall -ffunction-sections -fdata-sections -nostdlib",
     null
-  ]
+  ],
+  "files.associations": {
+    "limits": "cpp",
+    "*.tcc": "cpp",
+    "type_traits": "cpp",
+    "exception": "cpp",
+    "usb_serial.h": "c"
+  }
 }
