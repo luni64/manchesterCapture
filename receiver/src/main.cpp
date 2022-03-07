@@ -30,7 +30,7 @@ void loop()
     {
         decoder.resultBuffer.pop(result);
 
-        //Serial.println(result.count);
+        Serial.println(result.count);
         if (result.count != old.count + 1)
         {
             Serial.printf("Error %d, %d --------------------------------\n", old.count, result.count);
