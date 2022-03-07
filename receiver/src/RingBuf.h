@@ -2,9 +2,9 @@
 
 #include <Arduino.h>
 
-struct buffer
+struct RingBuffer
 {
-    uint32_t buff[256];
+    uint32_t buff[256]; // needs to be 256 for simple rollover (head/tail are 8bit variables)
     byte head = 0;
     byte tail = 0;
 

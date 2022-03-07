@@ -83,8 +83,6 @@ namespace Manchester
                 break;
 
             case SYNCED:
-                if (dt == 0) break;
-
                 if (dt > T * 3.5 || dt < T * 0.5) // timing to much off, probably a break, need to resync
                 {
                     Serial.printf("bad %d\n", dt);

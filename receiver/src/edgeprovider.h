@@ -8,8 +8,7 @@ class EdgeProvider
 {
  public:
     static void init();
-    //static EdgeBuffer buffer;
-    static buffer buff;
+    static RingBuffer buff;
 
  protected:
     static uint16_t oldCap;
