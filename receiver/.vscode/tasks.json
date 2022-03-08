@@ -53,7 +53,10 @@
   ],
   "version": "2.0.0",
   "type": "shell",
-  "problemMatcher": "$gcc",
+  "problemMatcher": {
+    "base": "$gcc",
+    "fileLocation": ["relative", "${workspaceRoot}"]
+  },
   "presentation": {
     "echo": true,
     "clear": true,

@@ -2,25 +2,6 @@
 
 #include <Arduino.h>
 
-struct RingBuffer
-{
-    uint32_t buff[256]; // needs to be 256 for simple rollover (head/tail are 8bit variables)
-    byte head = 0;
-    byte tail = 0;
-
-    void push(uint32_t value)
-    {
-        buff[head++] = value;
-    }
-
-    uint32_t pop()
-    {
-        return buff[tail++];
-    }
-
-    bool hasElements() { return head != tail; }
-};
-
 template <typename ET, size_t S>
 class RingBuf
 {
